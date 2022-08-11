@@ -1,0 +1,19 @@
+version: "3"
+
+# All available services
+services:
+  flask-app:
+    build: .
+    image: cuongta/flask:latest
+    ports:
+      - 9000:5000
+      - 9001:6000
+    volumes:
+      # declare your mount volume /host/dir:/container/dir
+      - .:/var/www/flask
+
+    restart: unless-stopped
+    #environment:
+      
+    command: bash runserver.sh
+    
